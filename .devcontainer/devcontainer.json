@@ -1,0 +1,45 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
+{
+  "name": "chatbox",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  // "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18-bullseye",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".",
+    "args": {
+      "VARIANT": "latest",
+      "NODE_VERSION": "none"
+    }
+  },
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      "extensions": [
+        "VisualStudioExptTeam.vscodeintellicode",
+        "VisualStudioExptTeam.intellicode-api-usage-examples",
+        "Vue.volar",
+        "sdras.vue-vscode-snippets",
+        "dariofuzinato.vue-peek",
+        "kisstkondoros.vscode-gutter-preview",
+        "jock.svg",
+        "xabikos.JavaScriptSnippets",
+        "mike-co.import-sorter",
+        "steoates.autoimport",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "christian-kohler.path-intellisense",
+        "syler.sass-indented",
+        "sibiraj-s.vscode-scss-formatter",
+        "wangluo.vue-element-plus-snippets",
+        "ms-vscode.js-debug-nightly",
+        "ZainChen.json",
+        "ms-vscode.vscode-typescript-next"
+      ]
+    }
+  },
+  "runArgs": ["-p", "1212:1212", "-it", "--rm", "-e", "DOCKER_HOST=0.0.0.0"],
+  "remoteUser": "vscode"
+}

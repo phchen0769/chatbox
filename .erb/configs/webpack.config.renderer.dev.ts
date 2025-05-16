@@ -119,12 +119,12 @@ const configuration: webpack.Configuration = {
     ...(skipDLLs
       ? []
       : [
-          new webpack.DllReferencePlugin({
-            context: webpackPaths.dllPath,
-            manifest: require(manifest),
-            sourceType: 'var',
-          }),
-        ]),
+        new webpack.DllReferencePlugin({
+          context: webpackPaths.dllPath,
+          manifest: require(manifest),
+          sourceType: 'var',
+        }),
+      ]),
 
     new webpack.NoEmitOnErrorsPlugin(),
 
@@ -185,6 +185,7 @@ const configuration: webpack.Configuration = {
 
   devServer: {
     port,
+    host: '0.0.0.0',
     compress: true,
     hot: true,
     headers: { 'Access-Control-Allow-Origin': '*' },
