@@ -1,6 +1,13 @@
 FROM node:18-bullseye
 
 LABEL maintainer="Fedorov"
+LABEL description="Chatbox Dev Container"
+LABEL version="1.0"
+LABEL name="Chatbox Dev Container"
+
+# 替换为阿里云 Debian 源
+RUN sed -i 's@http://deb.debian.org/debian@https://mirrors.aliyun.com/debian@g' /etc/apt/sources.list \
+    && sed -i 's@http://security.debian.org/debian-security@https://mirrors.aliyun.com/debian-security@g' /etc/apt/sources.list
 
 # 安装 Electron 运行所需的系统依赖
 RUN apt-get update && apt-get install -y \
@@ -30,6 +37,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     python3 \
     build-essential \
+    xvfb \
     && rm -rf /var/lib/apt/lists/*
 
 # 推荐使用清华源加速 npm
